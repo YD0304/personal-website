@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Youwei Dong</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <ul class="menu_lists">
+          <li class="menu_box"><a href="index.html">Home</a></li>
+          <li class="menu_box"><a href="about.html">About</a></li>
+          <li class="menu_box"><a href="portfolio.html">Portfolio</a></li>
+          <li class="menu_box"><a href="resume.html">Resume</a></li>
+          <li class="menu_box"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="main">
+      <h1 class="main_title">Youwei Dong</h1>
+      <hr />
+      <!-- Strong value proposition -->
+      <h2 class="tagline">
+        Computer Science Student | Sustainable Tech Enthusiast
+      </h2>
+
+      <!-- Concise background with purpose -->
+      <p class="intro">
+        Agriculture & Environmental Science graduate transitioning to tech.
+        Building solutions at the intersection of sustainability and software.
+      </p>
+    </div>
+    <div class="about">
+      <h2>About Me</h2>
+      <p>
+        I am a graduate in Agriculture and Environmental Science with a passion
+        for technology and problem-solving. Currently, I am pursuing an
+        undergraduate degree in Computer Science at the University of Montreal
+        to transition into the field of software development. I am eager to
+        apply my analytical skills and learn new technologies to build
+        innovative solutions.
+      </p>
+    </div>
+
+    <div class="skills">
+      <h2>Skills & Technologies</h2>
+      <p>
+        I have a strong foundation in programming languages and software
+        development methodologies. My skills include:
+      </p>
+      <ul class="skills-list">
+        <li>Java, Python, C++</li>
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>Database Management (SQL, MongoDB)</li>
+        <li>Version Control (Git, GitHub)</li>
+        <li>Agile Methodologies</li>
+      </ul>
+    </div>
+
+    <div class="portfolio">
+      <h2>Projects & Portfolio</h2>
+      <p class="portfolio-intro">
+        Here are technical projects showcasing my software development skills
+        and passion for sustainable technology solutions.
+      </p>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Maville - Urban Works Management System</h3>
+          <span class="project-date"
+            >University of Montreal | Java Project</span
+          >
+        </div>
+
+        <div class="project-content">
+          <div class="project-description">
+            <h4>Project Overview</h4>
+            <p>
+              A comprehensive urban management platform addressing Montreal's
+              public works coordination challenges. The system connects
+              residents, service providers, and city officials to improve
+              transparency and efficiency in infrastructure projects.
+            </p>
+
+            <h4>Key Features</h4>
+            <ul class="feature-list">
+              <li>
+                <i class="fas fa-users"></i> Multi-role access (Residents,
+                Providers, City Officials)
+              </li>
+              <li>
+                <i class="fas fa-bell"></i> Customizable notification system
+              </li>
+              <li>
+                <i class="fas fa-hard-hat"></i> Real-time work tracking with
+                Montreal's public API integration
+              </li>
+              <li>
+                <i class="fas fa-map-marked-alt"></i> Road problem reporting
+                with priority management
+              </li>
+              <li>
+                <i class="fas fa-file-contract"></i> Project bidding and
+                approval workflow
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact">
+          <h2>Contact</h2>
+          <p>
+            If you would like to get in touch, please feel free to reach out via
+            email or connect with me on LinkedIn.
+          </p>
+          <div class="contact_section">
+          <div class="contact_blocs">
+            <div class="phone">
+              <p>Phone</p>
+              <p>+1 (514) 578-1885</p>
+            </div>
+            <div class="email">
+              <p>Email</p>
+              <p>youwei0304@gmail.com</p>
+            </div>
+          </div>
+
+          <section class="contact-section">
+            <h2>Send a Message</h2>
+            <form action="submit_form.php" method="post" class="contact-form">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name..." required>
+        
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your email..." required>
+        
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        
+              <button type="submit">Send Message</button>
+            </form>
+          </section>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
