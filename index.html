@@ -3,18 +3,368 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Youwei Dong</title>
+    <title>Youwei Dong - Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      h2 {
+        color: #0c2d48;
+      }
+
+      p {
+        color: #333333;
+      }
+
+      /* HEADER */
+      header {
+        border: 1px solid #0c2d48;
+        background-color: #0c2d48;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .menu_lists {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        width: 70%;
+      }
+
+      .menu_box {
+        flex: 1;
+        text-align: center;
+      }
+
+      .menu_box a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .menu_box a:hover {
+        background-color: #145DA0;
+      }
+
+      .menu_box a.active {
+        background-color: #b1cfe4;
+        font-weight: bold;
+      }
+
+      .main {
+        padding: 20px;
+        background-color: #b1cfe4;
+      }
+
+      .about {
+        padding: 20px;
+        background-color: #f5f7fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills {
+        padding: 20px;
+        background-color: #b1cfe4;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .skills-list li {
+        background: white;
+        width: fit-content;
+        display: inline-block;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio {
+        padding: 20px;
+        background-color: #f5f7fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* CAROUSEL STYLES */
+      .projects_swipe_interactive {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 60px;
+      }
+
+      .projects_swipe_track_container {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .projects_swipe_track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .project_section {
+        flex: 0 0 350px;
+        margin-right: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .project-card {
+        padding: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-header {
+        background: linear-gradient(135deg, #0c2d48, #145DA0);
+        color: white;
+        padding: 20px;
+        text-align: left;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .project-header h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+      }
+
+      .project-date {
+        font-size: 0.9em;
+        opacity: 0.9;
+      }
+
+      .project-content {
+        padding: 20px;
+        flex-grow: 1;
+        text-align: left;
+      }
+
+      .project-description h4,
+      .project-technical h4 {
+        color: #0c2d48;
+        margin: 0 0 10px 0;
+        font-size: 1.1em;
+      }
+
+      .project-description p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .tech-pill {
+        background: #b1cfe4;
+        color: #0c2d48;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 500;
+      }
+
+      .swipe_button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(12, 45, 72, 0.8);
+        color: #fff;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        width: 50px;
+        height: 80px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .swipe_button:hover {
+        background: rgba(12, 45, 72, 1);
+      }
+
+      .swipe_button.left {
+        left: 10px;
+      }
+
+      .swipe_button.right {
+        right: 10px;
+      }
+
+      .contact {
+        padding: 40px;
+        background: linear-gradient(135deg, #b1cfe4, #E6F1F5);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact h2 {
+        text-align: center;
+        color: #0C2D48;
+        margin-bottom: 15px;
+      }
+
+      .contact p {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .contact_section {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .contact_blocs {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .contact_blocs div {
+        background: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .contact_blocs div:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      .contact_blocs p:first-child {
+        font-weight: bold;
+        color: #0C2D48;
+        margin-bottom: 5px;
+      }
+
+      .contact-section {
+        flex: 1.5;
+        min-width: 300px;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      }
+
+      .contact-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0C2D48;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-form label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.2s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #0C2D48;
+        outline: none;
+      }
+
+      .contact-form button {
+        padding: 14px;
+        border: none;
+        background: #0C2D48;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .contact-form button:hover {
+        background: #145DA0;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .contact_section {
+          flex-direction: column;
+        }
+
+        .projects_swipe_interactive {
+          padding: 20px 40px;
+        }
+
+        .project_section {
+          flex: 0 0 280px;
+        }
+
+        .swipe_button {
+          width: 40px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
       <div class="menu">
         <ul class="menu_lists">
           <li class="menu_box"><a href="index.html">Home</a></li>
-          <li class="menu_box"><a href="about.html">About</a></li>
+          <li class="menu_box"><a href="#about-section">About Me</a></li>
           <li class="menu_box"><a href="portfolio.html">Portfolio</a></li>
           <li class="menu_box"><a href="resume.html">Resume</a></li>
-          <li class="menu_box"><a href="contact.html">Contact</a></li>
+          <li class="menu_box"><a href="#contact-section">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -22,18 +372,17 @@
     <div class="main">
       <h1 class="main_title">Youwei Dong</h1>
       <hr />
-      <!-- Strong value proposition -->
       <h2 class="tagline">
         Computer Science Student | Sustainable Tech Enthusiast
       </h2>
 
-      <!-- Concise background with purpose -->
       <p class="intro">
         Agriculture & Environmental Science graduate transitioning to tech.
         Building solutions at the intersection of sustainability and software.
       </p>
     </div>
-    <div class="about">
+
+    <div class="about" id="about-section">
       <h2>About Me</h2>
       <p>
         I am a graduate in Agriculture and Environmental Science with a passion
@@ -67,85 +416,248 @@
         and passion for sustainable technology solutions.
       </p>
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Maville - Urban Works Management System</h3>
-          <span class="project-date"
-            >University of Montreal | Java Project</span
-          >
-        </div>
+      <div class="projects_swipe_interactive">
+        <button class="swipe_button left">‹</button>
+        
+        <div class="projects_swipe_track_container">
+          <div class="projects_swipe_track">
+            <!-- Project 1 -->
+            <div class="project_section">
+              <div class="project-card">
+                <div class="project-header">
+                  <h3>Maville - Urban Works Management System</h3>
+                  <span class="project-date">University of Montreal | Java Project</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-description">
+                    <h4>Project Overview</h4>
+                    <p>
+                      A comprehensive urban management platform addressing Montreal's
+                      public works coordination challenges. The system connects residents,
+                      service providers, and city officials to improve transparency and efficiency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <div class="project-content">
-          <div class="project-description">
-            <h4>Project Overview</h4>
-            <p>
-              A comprehensive urban management platform addressing Montreal's
-              public works coordination challenges. The system connects
-              residents, service providers, and city officials to improve
-              transparency and efficiency in infrastructure projects.
-            </p>
+            <!-- Project 2 -->
+            <div class="project_section">
+              <div class="project-card">
+                <div class="project-header">
+                  <h3>Personal Portfolio Website</h3>
+                  <span class="project-date">Personal Project | HTML, CSS, JavaScript</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-description">
+                    <h4>Project Overview</h4>
+                    <p>
+                      A responsive portfolio website to showcase my skills and projects,
+                      hosted with GitHub Pages.
+                    </p>
+                  </div>
+                  <div class="project-technical">
+                    <h4>Technical Implementation</h4>
+                    <div class="tech-stack">
+                      <span class="tech-pill">HTML5</span>
+                      <span class="tech-pill">CSS3</span>
+                      <span class="tech-pill">JavaScript</span>
+                      <span class="tech-pill">Responsive Design</span>
+                      <span class="tech-pill">GitHub Pages</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <h4>Key Features</h4>
-            <ul class="feature-list">
-              <li>
-                <i class="fas fa-users"></i> Multi-role access (Residents,
-                Providers, City Officials)
-              </li>
-              <li>
-                <i class="fas fa-bell"></i> Customizable notification system
-              </li>
-              <li>
-                <i class="fas fa-hard-hat"></i> Real-time work tracking with
-                Montreal's public API integration
-              </li>
-              <li>
-                <i class="fas fa-map-marked-alt"></i> Road problem reporting
-                with priority management
-              </li>
-              <li>
-                <i class="fas fa-file-contract"></i> Project bidding and
-                approval workflow
-              </li>
-            </ul>
+            <!-- Project 3 -->
+            <div class="project_section">
+              <div class="project-card">
+                <div class="project-header">
+                  <h3>Montreal Water Quality Analysis Dashboard</h3>
+                  <span class="project-date">University Project | Python, Pandas, Tableau</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-description">
+                    <h4>Project Overview</h4>
+                    <p>
+                      Built an interactive Tableau dashboard analyzing municipal water
+                      quality data across Montreal. Preprocessed 300+ records with Python
+                      (Pandas) and created visualizations for nutrient pollution, heavy
+                      metals, and time trends.
+                    </p>
+                  </div>
+                  <div class="project-technical">
+                    <h4>Technical Implementation</h4>
+                    <div class="tech-stack">
+                      <span class="tech-pill">Python</span>
+                      <span class="tech-pill">Pandas</span>
+                      <span class="tech-pill">Tableau</span>
+                      <span class="tech-pill">Data Cleaning</span>
+                      <span class="tech-pill">Data Visualization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project_section">
+              <div class="project-card">
+                <div class="project-header">
+                  <h3>Glisse Game</h3>
+                  <span class="project-date">Class Project | Python, CodeBoot</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-description">
+                    <h4>Project Overview</h4>
+                    <p>
+                      Developed a two-player strategy game <em>Glisse Pyjama</em> with
+                      grid-based movement, directional arrows, and turn-based mechanics.
+                    </p>
+                  </div>
+                  <div class="project-technical">
+                    <h4>Technical Implementation</h4>
+                    <div class="tech-stack">
+                      <span class="tech-pill">Python</span>
+                      <span class="tech-pill">CodeBoot</span>
+                      <span class="tech-pill">Game Logic</span>
+                      <span class="tech-pill">Grid-Based Design</span>
+                      <span class="tech-pill">Turn-Based Mechanics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project_section">
+              <div class="project-card">
+                <div class="project-header">
+                  <h3>Weekly Schedule Planner</h3>
+                  <span class="project-date">Academic Project | HTML, CSS, JS, Python (CodeBoot)</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-description">
+                    <h4>Project Overview</h4>
+                    <p>
+                      Weekly planning web app (Mon–Fri, 8:00–17:00, 30-min slots) with event creation,
+                      CSV import/export, conflict detection, and validation.
+                    </p>
+                  </div>
+                  <div class="project-technical">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack">
+                      <span class="tech-pill">HTML</span>
+                      <span class="tech-pill">CSS</span>
+                      <span class="tech-pill">JavaScript</span>
+                      <span class="tech-pill">Python (CodeBoot)</span>
+                      <span class="tech-pill">CSV Import/Export</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="contact">
-          <h2>Contact</h2>
-          <p>
-            If you would like to get in touch, please feel free to reach out via
-            email or connect with me on LinkedIn.
-          </p>
-          <div class="contact_section">
-          <div class="contact_blocs">
-            <div class="phone">
-              <p>Phone</p>
-              <p>+1 (514) 578-1885</p>
-            </div>
-            <div class="email">
-              <p>Email</p>
-              <p>youwei0304@gmail.com</p>
-            </div>
-          </div>
-
-          <section class="contact-section">
-            <h2>Send a Message</h2>
-            <form action="submit_form.php" method="post" class="contact-form">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name..." required>
-        
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email..." required>
-        
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-        
-              <button type="submit">Send Message</button>
-            </form>
-          </section>
-        </div>
-        </div>
+        <button class="swipe_button right">›</button>
       </div>
     </div>
+
+    <div class="contact" id="contact-section">
+      <h2>Contact</h2>
+      <p>
+        If you would like to get in touch, please feel free to reach out via
+        email or connect with me on LinkedIn.
+      </p>
+      <div class="contact_section">
+        <div class="contact_blocs">
+          <div class="phone">
+            <p>Phone</p>
+            <p>+1 (514) 578-1885</p>
+          </div>
+          <div class="email">
+            <p>Email</p>
+            <p>youwei0304@gmail.com</p>
+          </div>
+        </div>
+
+        <section class="contact-section">
+          <h2>Send a Message</h2>
+          <form action="submit_form.php" method="post" class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..." required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email..." required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.projects_swipe_track');
+        const prevButton = document.querySelector('.swipe_button.left');
+        const nextButton = document.querySelector('.swipe_button.right');
+        const cards = Array.from(document.querySelectorAll('.project_section'));
+        
+        let currentPosition = 0;
+        const cardWidth = 370; // 350px width + 20px margin
+        const containerWidth = document.querySelector('.projects_swipe_track_container').offsetWidth;
+        const visibleCards = Math.floor(containerWidth / cardWidth);
+        const maxPosition = Math.max(0, cards.length - visibleCards);
+
+        // Update button states
+        function updateButtons() {
+          prevButton.disabled = currentPosition === 0;
+          nextButton.disabled = currentPosition >= maxPosition;
+          
+          prevButton.style.opacity = currentPosition === 0 ? '0.5' : '1';
+          nextButton.style.opacity = currentPosition >= maxPosition ? '0.5' : '1';
+        }
+
+        // Next button functionality
+        nextButton.addEventListener('click', () => {
+          if (currentPosition < maxPosition) {
+            currentPosition++;
+            track.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+            updateButtons();
+          }
+        });
+
+        // Previous button functionality
+        prevButton.addEventListener('click', () => {
+          if (currentPosition > 0) {
+            currentPosition--;
+            track.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+            updateButtons();
+          }
+        });
+
+        // Initialize button states
+        updateButtons();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          const newContainerWidth = document.querySelector('.projects_swipe_track_container').offsetWidth;
+          const newVisibleCards = Math.floor(newContainerWidth / cardWidth);
+          const newMaxPosition = Math.max(0, cards.length - newVisibleCards);
+          
+          if (currentPosition > newMaxPosition) {
+            currentPosition = newMaxPosition;
+            track.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+          }
+          updateButtons();
+        });
+      });
+    </script>
   </body>
 </html>
